@@ -1,0 +1,11 @@
+{
+	"Artist": {
+		"listener": {
+			"$contextRole": true
+		},
+		"Song": {
+			"role": "Artist/listener",
+			"can": "read"
+		}
+	}
+}

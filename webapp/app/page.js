@@ -1,32 +1,51 @@
 "use client";
 
 import { Web5 } from "@web5/api";
-import { useState } from "react";
+// import protocolJson from "./protocol.json";
+// import Structurejson from "./structure.json";
 
 export default function Home() {
-  const [web5, setweb5] = useState("");
-  const [did, setDid] = useState("");
+
+  // console.log( "JSON : ", Structurejson);
+  // console.log( "TYPES : ", protocolJson.types);
 
   const configuration = async () => {
     const { web5, did } = await Web5.connect();
-    setweb5(web5);
-    setDid(did);
-  };
+    console.log("web5", web5);
+    console.log("did", did);
 
-  return (
-    <>
-      <h1 className="mb-10">Web5 React Example</h1>
+    console.log("DONE !!!!!")
+    // const { protocol, status } = await web5.dwn.protocols.configure({
+    //   "message": {
+    //     "definition": {
+    //       "protocol": "https://sollertia/protocol",
+    //       "published": true,
+    //       // "types": protocolJson.types,
+    //       // "structure": Structurejson
+    //     }
+    //   }
+    // });
 
-      {/* <h1>{did}</h1>
+    // configuration();
 
-      <h1>{web5}</h1> */}
+    // console.log("Protocol and status", protocol + " " + status);
 
-      <button onClick={configuration}>Connect to the Web5 Network</button>
+    // Query
+    // const { protocols, q_status } = await web5.dwn.protocols.query({
+    //   message: {
+    //     filter: {
+    //       protocol: 'https://sollertia/protocol',
+    //     },
+    //   },
+    //   // logs an array of protocol configurations installed on the user's DWN
+    // });
 
-      <h1>Hello : {did} </h1>
-      <p>{web5 ? `Connected to ${web5}` : ""}</p>
-
-      <div style={{ display: !web5 || !did ? "none" : undefined }} />
-    </>
-  );
+    // console.log("Protocols and status", protocols + " " + q_status);
+    return (
+      <>
+        <h1 className="mb-10">Web5 React Example</h1>
+        <button onClick={configuration}>Connect to the Web5 Network</button>
+      </>
+    );
+  }
 }

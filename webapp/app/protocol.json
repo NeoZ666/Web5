@@ -1,0 +1,460 @@
+{
+    "protocol": "https://sollertia/protocol",
+    "published": true,
+    "types": {
+        "Listener": {
+            "schema": "https://sollertia/protocol/Listener",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "listenerImage": {
+            "schema": "https://sollertia/protocol/listenerImage",
+            "dataFormats": [
+                "image/png",
+                "jpeg",
+                "gif"
+            ]
+        },
+        "Subscriber": {
+            "schema": "https://sollertia/protocol/Subscriber",
+            "dataFormats": [
+                "text/plain"
+            ]
+        },
+        "Company": {
+            "schema": "https://sollertia/protocol/Company",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "LicensingCompany": {
+            "schema": "https://sollertia/protocol/LicensingCompany",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "companyName": {
+            "schema": "https://sollertia/protocol/companyName",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "licenseFee": {
+            "schema": "https://sollertia/protocol/licenseFee",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "NoOfDays": {
+            "schema": "https://sollertia/protocol/NoOfDays",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "TxnHash": {
+            "schema": "https://sollertia/protocol/TxnHash",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "Artist": {
+            "schema": "https://sollertia/protocol/Artist",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "artistImage": {
+            "schema": "https://sollertia/protocol/artistImage",
+            "dataFormats": [
+                "image/png",
+                "jpeg",
+                "gif"
+            ]
+        },
+        "artistName": {
+            "schema": "https://sollertia/protocol/ArtistName",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "wallet": {
+            "schema": "https://sollertia/protocol/wallet",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "numberOfSongs": {
+            "schema": "https://sollertia/protocol/numberOfSongs",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "Event": {
+            "schema": "https://sollertia/protocol/Event",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "eventCoverImage": {
+            "schema": "https://sollertia/protocol/eventCoverImage",
+            "dataFormats": [
+                "image/png",
+                "jpeg",
+                "gif"
+            ]
+        },
+        "eventName": {
+            "schema": "https://sollertia/protocol/eventName",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "eventDate": {
+            "schema": "https://sollertia/protocol/eventDate",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "eventFee": {
+            "schema": "https://sollertia/protocol/eventFee",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "Song": {
+            "schema": "https://sollertia/protocol/song",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "songName": {
+            "schema": "https://sollertia/protocol/songName",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "songDesc": {
+            "schema": "https://sollertia/protocol/songDesc",
+            "dataFormats": [
+                "application/json"
+            ]
+        },
+        "songFile": {
+            "schema": "https://sollertia/protocol/songFile",
+            "dataFormats": [
+                "image/png",
+                "jpeg",
+                "gif"
+            ]
+        },
+        "songTrack": {
+            "schema": "https://sollertia/protocol/songTrack",
+            "dataFormats": [
+                "audio/mp3",
+                "wav"
+            ]
+        },
+        "songViews": {
+            "schema": "https://sollertia/protocol/songViews",
+            "dataFormats": [
+                "application/json"
+            ]
+        }
+    },
+    "structure": {
+        "Artist": {
+            "$actions": [
+                {
+                    "who": "anyone",
+                    "can": "read"
+                }
+            ],
+            "artistImage": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "author",
+                        "can": "write"
+                    }
+                ]
+            },
+            "artistName": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "author",
+                        "can": "write"
+                    }
+                ]
+            },
+            "wallet": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "author",
+                        "can": "write"
+                    }
+                ]
+            },
+            "numberOfSongs": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "author",
+                        "can": "write"
+                    },
+                    {
+                        "who": "author",
+                        "can": "update"
+                    }
+                ]
+            },
+            "Subscriber": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    }
+                ]
+            },
+            "Event": {
+                "$actions": [
+                    {
+                        "who": "Subscriber",
+                        "can": "read"
+                    },
+                    {
+                        "who": "author",
+                        "of": "Artist",
+                        "can": "write"
+                    }
+                ],
+                "eventName": {
+                    "$actions": [
+                        {
+                            "who": "Subscriber",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                },
+                "eventDate": {
+                    "$actions": [
+                        {
+                            "who": "Subscriber",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                },
+                "eventFee": {
+                    "$actions": [
+                        {
+                            "who": "Subscriber",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                },
+                "eventCoverImage": {
+                    "$actions": [
+                        {
+                            "who": "Subscriber",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                }
+            },
+            "Song": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "Artist",
+                        "can": "write"
+                    }
+                ],
+                "songName": {
+                    "$actions": [
+                        {
+                            "who": "anyone",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                },
+                "songDesc": {
+                    "$actions": [
+                        {
+                            "who": "anyone",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                },
+                "songFile": {
+                    "$actions": [
+                        {
+                            "who": "anyone",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                },
+                "songTrack": {
+                    "$actions": [
+                        {
+                            "who": "LicensingCompany",
+                            "of": "Song",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Artist",
+                            "can": "write"
+                        }
+                    ]
+                },
+                "songViews": {
+                    "$actions": [
+                        {
+                            "who": "LicensingCompany",
+                            "of": "Song",
+                            "can": "write"
+                        },
+                        {
+                            "who": "LicensingCompany",
+                            "of": "Song",
+                            "can": "update"
+                        },
+                        {
+                            "who": "Artist",
+                            "of": "Song",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Subscriber",
+                            "of": "Artist",
+                            "can": "read"
+                        }
+                    ]
+                },
+                "NoOfDays": {
+                    "$actions": [
+                        {
+                            "who": "LicensingCompany",
+                            "of": "Song",
+                            "can": "write"
+                        },
+                        {
+                            "who": "LicensingCompany",
+                            "of": "Song",
+                            "can": "update"
+                        },
+                        {
+                            "who": "Artist",
+                            "of": "Song",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Subscriber",
+                            "of": "Artist",
+                            "can": "read"
+                        }
+                    ]
+                },
+                "licenseFee": {
+                    "$actions": [
+                        {
+                            "who": "LicensingCompany",
+                            "of": "Song",
+                            "can": "write"
+                        },
+                        {
+                            "who": "Artist",
+                            "of": "Song",
+                            "can": "read"
+                        },
+                        {
+                            "who": "Subscriber",
+                            "of": "Artist",
+                            "can": "read"
+                        }
+                    ]
+                }
+            }
+        },
+        "Company": {
+            "$actions": [
+                {
+                    "who": "anyone",
+                    "can": "read"
+                },
+                {
+                    "who": "Company",
+                    "can": "write"
+                }
+            ]
+        },
+        "Listener": {
+            "$actions": [
+                {
+                    "who": "anyone",
+                    "can": "read"
+                },
+                {
+                    "who": "Listener",
+                    "can": "write"
+                }
+            ],
+            "listenerImage": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "Listener",
+                        "can": "write"
+                    }
+                ]
+            }
+        }
+    }
+}
