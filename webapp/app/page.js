@@ -1,8 +1,8 @@
 "use client";
 
 import { Web5 } from "@web5/api";
-// import protocolJson from "./protocol.json";
-// import Structurejson from "./structure.json";
+import protocolJSON from "./protocol.json";
+import structureJSON from "./structure.json"
 
 export default function Home() {
 
@@ -15,37 +15,31 @@ export default function Home() {
     console.log("did", did);
 
     console.log("DONE !!!!!")
-    // const { protocol, status } = await web5.dwn.protocols.configure({
-    //   "message": {
-    //     "definition": {
-    //       "protocol": "https://sollertia/protocol",
-    //       "published": true,
-    //       // "types": protocolJson.types,
-    //       // "structure": Structurejson
-    //     }
-    //   }
-    // });
 
-    // configuration();
+    /////////////
+    console.log("Structure JSON : ", structureJSON.structure);
+    console.log("Protocol JSON: ", protocolJSON.types);
 
-    // console.log("Protocol and status", protocol + " " + status);
+    /////////////
 
-    // Query
-    // const { protocols, q_status } = await web5.dwn.protocols.query({
-    //   message: {
-    //     filter: {
-    //       protocol: 'https://sollertia/protocol',
-    //     },
-    //   },
-    //   // logs an array of protocol configurations installed on the user's DWN
-    // });
-
-    // console.log("Protocols and status", protocols + " " + q_status);
-    return (
-      <>
-        <h1 className="mb-10">Web5 React Example</h1>
-        <button onClick={configuration}>Connect to the Web5 Network</button>
-      </>
-    );
+    const { protocol } = await web5.dwn.protocols.configure({
+      message: {
+        definition: {
+          "protocol": "https://sollertia/protocol",
+          "published": true,
+          "types": protocolJSON.types,
+          "structure" : structureJSON.structure
+        }
+      },
+    });
+    const definition = protocol.definition;
+    console.log("DEFINATION : ", definition);
   }
+
+  return (
+    <>
+      <h1 className="mb-10">Web5 React Example</h1>
+      <button onClick={configuration}>Connect to the Web5 Network</button>
+    </>
+  );
 }

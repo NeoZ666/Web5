@@ -1,11 +1,14 @@
 {
-	"Artist": {
+	"structure": {
+		"Artist": {
 		"listener": {
 			"$contextRole": true
 		},
 		"Song": {
-			"role": "Artist/listener",
-			"can": "read"
+				"role": "Artist/listener",
+				"can": "read"
+			}
 		}
 	}
 }
+  
