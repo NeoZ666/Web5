@@ -2,15 +2,14 @@
 
 // Import necessary Next.js modules
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { Web5 } from "@web5/api";
-import 
 
 export default function Home() {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   // const [text, setText] = useState(null);
-  // const router = useRouter();
+  const router = useRouter();
 
   const NiluDid = "did:ion:EiCwShHnOLZcJk7eh6Tk19JHRDb4qAqDSpuwdLGIkV8YvQ:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJkd24tc2lnIiwicHVibGljS2V5SndrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4IjoibC1Pb2ZWZDV6QmEyejV4cWhSdW1EQ0F3a2JqT1UtNlJRaWxuaTRqekhIMCJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifSx7ImlkIjoiZHduLWVuYyIsInB1YmxpY0tleUp3ayI6eyJjcnYiOiJzZWNwMjU2azEiLCJrdHkiOiJFQyIsIngiOiJxSWRDc2EzajRrcV92eW5BaDdCUmJybk9INEpOR0ZFQk15eEFLQlh0V2swIiwieSI6IjZlRldYbmFtbVl2bXNYeXhUSGVHZl9HTjhGUm5RdFo1N3NydE1KSnZwblUifSwicHVycG9zZXMiOlsia2V5QWdyZWVtZW50Il0sInR5cGUiOiJKc29uV2ViS2V5MjAyMCJ9XSwic2VydmljZXMiOlt7ImlkIjoiZHduIiwic2VydmljZUVuZHBvaW50Ijp7ImVuY3J5cHRpb25LZXlzIjpbIiNkd24tZW5jIl0sIm5vZGVzIjpbImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNCIsImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNSJdLCJzaWduaW5nS2V5cyI6WyIjZHduLXNpZyJdfSwidHlwZSI6IkRlY2VudHJhbGl6ZWRXZWJOb2RlIn1dfX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlCY3FIZXBVb2xMQkNyWDN6bndGTmxpQzRRd3dJMWJFS3hjUHNyUEZHQ1BJZyJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpRFh2TEtLRWswei0xY21xYThuRFhDRndGTzN1ODFRekpvdlRZenlIOF9fT1EiLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaUJtb2ozRTA4TGozbGkzT1lGdVQ1UUFEZlIxa3ZCNzMycEEwOEVjUnpQUnBRIn19";
 
@@ -109,7 +108,7 @@ export default function Home() {
   //   );
   // console.log("REPLY RESPONSE : ", replyResponse);
 
-    // Check if a file is selected
+    // DONO JAA RAHE HAI ACHE SE. DON'T CNANGE the keyword "record" or Upload/Read won't work.
     if (!file) {
       console.error('No file selected');
       return;
@@ -127,7 +126,7 @@ export default function Home() {
       console.log("RECORD : ", record);
       console.log("RECORD ID : ", record._recordId);
 
-    // Continue with the rest of your configuration logic...
+    // READ: TEXT HO RAHA HAI BUT IMAGE NAHI
       // let { record } = await web5.dwn.records.read({
       //   message: {
       //     filter: {
