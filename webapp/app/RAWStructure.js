@@ -8,10 +8,6 @@ const RAWJson = {
     },
   },
   structure: {
-    // 1 Artist -> Many [Song, Event, Subscribers(leaf)]
-    // 1 Song -> Many [Company]
-    // 1 Event -> Many [Subscribers]
-
     Artist: {
       Song: {
         $contextRole: true,
@@ -25,15 +21,15 @@ const RAWJson = {
     },
 
     Song: {
-      //   $actions: [
-      //     { who: "anyone", can: "read" },
-      //     { who: "anyone", can: "write"},
-      //   ],
+        $actions: [
+          { who: "anyone", can: "read" },
+          { who: "anyone", can: "write"},
+        ],
       // This was inside Comapny: contextId: role
-      // $actions: [
-      //     { who: "anyone", can: "read" },
-      //     { who: "anyone", can: "write"},
-      //   ],
+      $actions: [
+          { who: "anyone", can: "read" },
+          { who: "anyone", can: "write"},
+        ],
       Company: {
         $contextRole: true,
       },
@@ -169,6 +165,66 @@ const protocolDefinition = {
             who: "recipient",
             of: "image",
             can: "write",
+          },
+        ],
+      },
+    },
+  },
+};
+
+
+// GPT 2ND RESPONE : 
+const GPTRESPONSE = {
+  types: {
+    song: {
+      schema: "https://song.com",
+      dataFormats: ["application/json"],
+    },
+    artist: {
+      schema: "https://artist.com",
+      dataFormats: ["application/json"],
+    },
+    company: {
+      schema: "https://company.com",
+      dataFormats: ["application/json"],
+    },
+    event: {
+      schema: "https://event.com",
+      dataFormats: ["application/json"],
+    },
+    subscriber: {
+      schema: "https://subscriber.com",
+      dataFormats: ["application/json"],
+    },
+  },
+  structure: {
+    artists: {
+      song: {
+        $contextRole: true, // Context role for Subscribers
+      },
+      event: {
+        $contextRole: true, // Context role for Subscribers
+      },
+      subscriber: {
+        $contextRole: true, // Context role for Subscribers
+      },
+    },
+    songs: {
+      company: {
+        $actions: [
+          {
+            role: "company",
+            can: "read",
+          },
+        ],
+      },
+    },
+    events: {
+      subscriber: {
+        $actions: [
+          {
+            role: "subscriber",
+            can: "attend",
           },
         ],
       },

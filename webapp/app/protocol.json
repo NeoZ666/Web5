@@ -61,7 +61,7 @@
         "Artist": {
             "schema": "https://sollertia/protocol/Artist",
             "dataFormats": [
-                "application/json"
+                "text/plain"
             ]
         },
         "artistImage": {
