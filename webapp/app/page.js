@@ -45,31 +45,32 @@ export default function Home() {
     // console.log(protocols);
 
     // Create the user into our local DWN :
-    const { record } = await web5.dwn.records.create({
-      data: "HELLO HERE, FROM HARSH",
-      message: {
-        recipient: harshDid,
-        schema: "https://sollertia/protocol",
-        dataFormat: "application/json",
-      },
-    });
-    console.log(record);
-
-    // this creates a record and stores it in the user's local DWN
     // const { record } = await web5.dwn.records.create({
-    //   data: "Hello World!",
+    //   data: "HELLO HERE, FROM HARSH",
     //   message: {
-    //     contextId: did,
-    //     parentId: did,
-    //     protocol: "https://sollertia/protocol",
-    //     protocolPath: "Artist/Subscriber",
-    //     dataFormat: "text/plain",
+    //     recipient: harshDid,
+    //     schema: "https://sollertia/protocol",
+    //     dataFormat: "application/json",
     //   },
     // });
+    // console.log(record);
+
+    // this creates a record and stores it in the user's local DWN
+    const { record_harsh } = await web5.dwn.records.create(  {
+    data: "You can access the song now",
+    message: {
+      //  contextId: "did",
+      // parentId: "did",
+      protocol: "https://sollertia/protocol",
+      protocolPath: "Artist/Subscriber",
+      schema: "https://sollertia/protocol/Listener",
+      dataFormat: "text/plain"
+    },
+  });
 
     const { status: nilanchalStatus } = await record.send(did);
 
-    const { status: harshStatus } = await record.send(harshDid);
+    const { status: harshStatus } = await record_harsh.send(harshDid);
 
     console.log("NILANCHALA PANDA : ", nilanchalStatus);
     console.log("HARSH JAIN :", harshStatus);

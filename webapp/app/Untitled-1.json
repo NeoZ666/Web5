@@ -1,0 +1,40 @@
+{
+    "protocol": "https://sollertia/protocol",
+    "published": true,
+    "types": {
+      "Listener": {
+        "schema": "https://sollertia/protocol/Listener",
+        "dataFormats": ["application/json"]
+      }
+    },
+    "structure": {
+
+      "Artist": {
+        "Subscriber": {
+          "$contextRole": true
+        },
+        "canAccessSong": {
+          "$actions": [
+            { "role": "Artist/Subscriber", "can": "read" }
+          ]
+        }
+      },
+
+      "Song": {
+        "$actions": [
+          { "who": "anyone", "can": "read" },
+          { "who": "anyone", "can": "write" }
+        ],
+        "Company": {
+          "$contextRole": true
+        },
+        "canAccess": {
+          "$actions": [
+            { "role": "Song/Company", "can": "read" }
+          ]
+        }
+      }
+    }
+  }
+  
+
