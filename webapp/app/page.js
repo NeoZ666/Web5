@@ -24,10 +24,43 @@ export default function Home() {
     const { protocol } = await web5.dwn.protocols.configure({
       message: {
         definition: {
-          protocol: "https://sollertia/protocol",
-          published: true,
-          types: protocolJSON.types,
-          structure: structureJSON.structure,
+            "protocol": "https://sollertia/protocol",
+            "published": true,
+            "types": {
+              "Listener": {
+                "schema": "https://sollertia/protocol/Listener",
+                "dataFormats": [
+                  "text/plain"
+                ]
+              }
+            },
+            "structure": {
+              "Artist": {
+                "Subscriber": {
+                  "$contextRole": true
+                },
+                "canAccessSong": {
+                  "$actions": [
+                    { "role": "Artist/Subscriber", "can": "read" }
+                  ]
+                }
+              },
+        
+              "Song": {
+                "$actions": [
+                  { "who": "anyone", "can": "read" },
+                  { "who": "anyone", "can": "write" }
+                ],
+                "Company": {
+                  "$contextRole": true
+                },
+                "canAccess": {
+                  "$actions": [
+                    { "role": "Song/Company", "can": "read" }
+                  ]
+                }
+              }
+            }
         },
       },
     });
@@ -55,10 +88,22 @@ export default function Home() {
     // });
     // console.log(record);
 
+    const { record: postRecord, status: createStatus } = await web5.dwn.records.create({
+      data: 'Hey this is my first post!',
+      message: {
+        recipient: did,
+        schema: "https://sollertia/protocol/Listener",
+        dataFormat: 'text/plain',
+        protocol: "https://sollertia/protocol",
+        protocolPath: 'post'
+      }
+    });
+
     // this creates a record and stores it in the user's local DWN
-    const { record_harsh } = await web5.dwn.records.create(  {
+    const replyResponse = await web5.dwn.records.create(  {
     data: "You can access the song now",
     message: {
+      recipient: did,
       //  contextId: "did",
       // parentId: "did",
       protocol: "https://sollertia/protocol",
@@ -67,10 +112,9 @@ export default function Home() {
       dataFormat: "text/plain"
     },
   });
+  console.log("REPLY RESPONSE : ", replyResponse);
 
-    const { status: nilanchalStatus } = await record.send(did);
-
-    const { status: harshStatus } = await record_harsh.send(harshDid);
+    // const { status: harshStatus } = await records.send(harshDid);
 
     console.log("NILANCHALA PANDA : ", nilanchalStatus);
     console.log("HARSH JAIN :", harshStatus);

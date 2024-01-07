@@ -4,7 +4,9 @@
     "types": {
       "Listener": {
         "schema": "https://sollertia/protocol/Listener",
-        "dataFormats": ["application/json"]
+        "dataFormats": [
+          "text/plain"
+        ]
       }
     },
     "structure": {
