@@ -1,25 +1,13 @@
 "use client";
 
 import { Web5 } from "@web5/api";
-import protocolJSON from "./protocol.json";
-import structureJSON from "./structure.json";
 
 export default function Home() {
-  // console.log( "JSON : ", Structurejson);
-  // console.log( "TYPES : ", protocolJson.types);
 
-  const harshDid =
-    "did:ion:EiB6Nm_6iubsqNFmajuOeCxilttwcTGxaTQuAcEwa5lUmQ:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJkd24tc2lnIiwicHVibGljS2V5SndrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4IjoidGhqalRsNlMxMnlMNUVKdEFWalhadmdRLTN0S2RzQzFiRHpLeXJXcmh6USJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifSx7ImlkIjoiZHduLWVuYyIsInB1YmxpY0tleUp3ayI6eyJjcnYiOiJzZWNwMjU2azEiLCJrdHkiOiJFQyIsIngiOiJhWlNaSnhnRHRyWFliQTFFc1dwNk9wX1ZBbjFQYTNBYWw3Y0Rsb2RSTUhzIiwieSI6Imd3NDhFQk9YODJRUm5MellfeWtRejNmc2lEaWpxRk1SUHYzV083N1V1akEifSwicHVycG9zZXMiOlsia2V5QWdyZWVtZW50Il0sInR5cGUiOiJKc29uV2ViS2V5MjAyMCJ9XSwic2VydmljZXMiOlt7ImlkIjoiZHduIiwic2VydmljZUVuZHBvaW50Ijp7ImVuY3J5cHRpb25LZXlzIjpbIiNkd24tZW5jIl0sIm5vZGVzIjpbImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNCIsImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNSJdLCJzaWduaW5nS2V5cyI6WyIjZHduLXNpZyJdfSwidHlwZSI6IkRlY2VudHJhbGl6ZWRXZWJOb2RlIn1dfX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlEUHAxeENaTXdLLXdIVElqZVRuclQ0MW9LcVJGSG5idE9qRFh6bUl5ODRBdyJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpQWlRTXA1dHB6UjZCQUR0TTBFMkFRcFJFUXptUWhVZnFSb3MxaWdFaFBieHciLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaUF3NFpRNzNsRnZzYm1QaXJ6dG9rZENFUEZSdkxSN2RNSjU5aVdqcU5UT1BBIn19";
+  const NiluDid = "did:ion:EiCwShHnOLZcJk7eh6Tk19JHRDb4qAqDSpuwdLGIkV8YvQ:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJkd24tc2lnIiwicHVibGljS2V5SndrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4IjoibC1Pb2ZWZDV6QmEyejV4cWhSdW1EQ0F3a2JqT1UtNlJRaWxuaTRqekhIMCJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifSx7ImlkIjoiZHduLWVuYyIsInB1YmxpY0tleUp3ayI6eyJjcnYiOiJzZWNwMjU2azEiLCJrdHkiOiJFQyIsIngiOiJxSWRDc2EzajRrcV92eW5BaDdCUmJybk9INEpOR0ZFQk15eEFLQlh0V2swIiwieSI6IjZlRldYbmFtbVl2bXNYeXhUSGVHZl9HTjhGUm5RdFo1N3NydE1KSnZwblUifSwicHVycG9zZXMiOlsia2V5QWdyZWVtZW50Il0sInR5cGUiOiJKc29uV2ViS2V5MjAyMCJ9XSwic2VydmljZXMiOlt7ImlkIjoiZHduIiwic2VydmljZUVuZHBvaW50Ijp7ImVuY3J5cHRpb25LZXlzIjpbIiNkd24tZW5jIl0sIm5vZGVzIjpbImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNCIsImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNSJdLCJzaWduaW5nS2V5cyI6WyIjZHduLXNpZyJdfSwidHlwZSI6IkRlY2VudHJhbGl6ZWRXZWJOb2RlIn1dfX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlCY3FIZXBVb2xMQkNyWDN6bndGTmxpQzRRd3dJMWJFS3hjUHNyUEZHQ1BJZyJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpRFh2TEtLRWswei0xY21xYThuRFhDRndGTzN1ODFRekpvdlRZenlIOF9fT1EiLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaUJtb2ozRTA4TGozbGkzT1lGdVQ1UUFEZlIxa3ZCNzMycEEwOEVjUnpQUnBRIn19"
 
   const configuration = async () => {
     const { web5, did } = await Web5.connect();
-    console.log("web5", web5);
-    console.log("did", did);
-
-    /////////////
-    console.log("Structure JSON : ", structureJSON.structure);
-    console.log("Protocol JSON: ", protocolJSON.types);
-    /////////////
 
     const { protocol } = await web5.dwn.protocols.configure({
       message: {
@@ -29,6 +17,24 @@ export default function Home() {
             "types": {
               "Listener": {
                 "schema": "https://sollertia/protocol/Listener",
+                "dataFormats": [
+                  "text/plain"
+                ]
+              },
+              "canAccessSong": {
+                "schema": "https://sollertia/protocol/canAccessSong",
+                "dataFormats": [
+                  "text/plain"
+                ]
+              },
+              "Song": {
+                "schema": "https://sollertia/protocol/Song",
+                "dataFormats": [
+                  "text/plain"
+                ]
+              },
+              "canAccess": {
+                "schema": "https://sollertia/protocol/canAccess",
                 "dataFormats": [
                   "text/plain"
                 ]
@@ -65,59 +71,34 @@ export default function Home() {
       },
     });
     const definition = protocol.definition;
-    console.log("DEFINATION : ", definition);
-
-    // QUERY :
-    // const { protocols } = await web5.dwn.protocols.query({
-    //   message: {
-    //     filter: {
-    //       protocol: "https://sollertia/protocol",
-    //     },
-    //   },
-    // });
-    // console.log(protocols);
-
-    // Create the user into our local DWN :
-    // const { record } = await web5.dwn.records.create({
-    //   data: "HELLO HERE, FROM HARSH",
-    //   message: {
-    //     recipient: harshDid,
-    //     schema: "https://sollertia/protocol",
-    //     dataFormat: "application/json",
-    //   },
-    // });
-    // console.log(record);
 
     const { record: postRecord, status: createStatus } = await web5.dwn.records.create({
       data: 'Hey this is my first post!',
       message: {
-        recipient: did,
-        schema: "https://sollertia/protocol/Listener",
-        dataFormat: 'text/plain',
         protocol: "https://sollertia/protocol",
-        protocolPath: 'post'
+        protocolPath: 'canAccess',
+        recipient: NiluDid,
+        schema: "https://sollertia/protocol/canAccess",
+        dataFormat: 'text/plain'
       }
     });
 
+    console.log("POST RECORD : ", postRecord);
     // this creates a record and stores it in the user's local DWN
     const replyResponse = await web5.dwn.records.create(  {
-    data: "You can access the song now",
-    message: {
-      recipient: did,
-      //  contextId: "did",
-      // parentId: "did",
-      protocol: "https://sollertia/protocol",
-      protocolPath: "Artist/Subscriber",
-      schema: "https://sollertia/protocol/Listener",
-      dataFormat: "text/plain"
-    },
-  });
+      "data": "You can access the song now",
+      "message": {
+        "recipient": "did:ion:EiCwShHnOLZcJk7eh6Tk19JHRDb4qAqDSpuwdLGIkV8YvQ:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJkd24tc2lnIiwicHVibGljS2V5SndrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4IjoibC1Pb2ZWZDV6QmEyejV4cWhSdW1EQ0F3a2JqT1UtNlJRaWxuaTRqekhIMCJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifSx7ImlkIjoiZHduLWVuYyIsInB1YmxpY0tleUp3ayI6eyJjcnYiOiJzZWNwMjU2azEiLCJrdHkiOiJFQyIsIngiOiJxSWRDc2EzajRrcV92eW5BaDdCUmJybk9INEpOR0ZFQk15eEFLQlh0V2swIiwieSI6IjZlRldYbmFtbVl2bXNYeXhUSGVHZl9HTjhGUm5RdFo1N3NydE1KSnZwblUifSwicHVycG9zZXMiOlsia2V5QWdyZWVtZW50Il0sInR5cGUiOiJKc29uV2ViS2V5MjAyMCJ9XSwic2VydmljZXMiOlt7ImlkIjoiZHduIiwic2VydmljZUVuZHBvaW50Ijp7ImVuY3J5cHRpb25LZXlzIjpbIiNkd24tZW5jIl0sIm5vZGVzIjpbImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNCIsImh0dHBzOi8vZHduLnRiZGRldi5vcmcvZHduNSJdLCJzaWduaW5nS2V5cyI6WyIjZHduLXNpZyJdfSwidHlwZSI6IkRlY2VudHJhbGl6ZWRXZWJOb2RlIn1dfX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlCY3FIZXBVb2xMQkNyWDN6bndGTmxpQzRRd3dJMWJFS3hjUHNyUEZHQ1BJZyJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpRFh2TEtLRWswei0xY21xYThuRFhDRndGTzN1ODFRekpvdlRZenlIOF9fT1EiLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaUJtb2ozRTA4TGozbGkzT1lGdVQ1UUFEZlIxa3ZCNzMycEEwOEVjUnpQUnBRIn19",
+        "contextId": "bafyreic4flpi2a346n6i25rd4rfjyjsga2njf4ognsfalu3scc3jblfx2u",
+        "parentId": "bafyreic4flpi2a346n6i25rd4rfjyjsga2njf4ognsfalu3scc3jblfx2u",
+        "protocol": "https://sollertia/protocol",
+        "protocolPath": "Song/canAccess",
+        "schema": "https://sollertia/protocol/canAccess",
+        "dataFormat": "text/plain"
+      }
+    }
+    );
   console.log("REPLY RESPONSE : ", replyResponse);
-
-    // const { status: harshStatus } = await records.send(harshDid);
-
-    console.log("NILANCHALA PANDA : ", nilanchalStatus);
-    console.log("HARSH JAIN :", harshStatus);
   };
 
   return (
