@@ -1,10 +1,14 @@
 "use client";
 
 // Import necessary Next.js modules
-import { useState } from "react";
-import { Web5 } from "@web5/api";
+import { useEffect, useState } from "react";
+import { Web5 } from "@web5/api/browser";
 
-export default function Home() {
+// useEffect(() => {
+//   import { Web5 } from "@web5/api/browser";
+// }, []);
+
+export default async function Home() {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   // const [text, setText] = useState(null);
@@ -78,7 +82,7 @@ export default function Home() {
     //     }
     //   });
 
-    console.log("POST RECORD : ", postRecord);
+    // console.log("POST RECORD : ", postRecord);
     // this creates a record and stores it in the user's local DWN
     const replyResponse = await web5.dwn.records.create({
       data: "You can access the song now",
@@ -129,6 +133,18 @@ export default function Home() {
     setImage(text);
     console.log("Record Data Text:", text);
   };
+  // let { record } = await web5.dwn.records.read({
+  //   message: {
+  //     filter: {
+  //       recordId: "bafyreibmpu4sinoumlhxolbquzni4sbxnbgr6qin2s4jido6noctdpbmva",
+  //     },
+  //   },
+  // });
+  console.log("yaha tak hua hai");
+  // assuming the record has a text payload
+  const text = await record.data.text();
+  setImage(text);
+  console.log("Record Data Text:", text);
 
   // Function to handle file input change
   const handleFileChange = (event) => {
