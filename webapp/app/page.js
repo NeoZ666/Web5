@@ -3,6 +3,8 @@
 // Import necessary Next.js modules
 import { useEffect, useState } from "react";
 import { Web5 } from "@web5/api/browser";
+import HomePage from "./components/Homepage";
+import NeovisComponent from "./components/NeovisComponent";
 
 // useEffect(() => {
 //   import { Web5 } from "@web5/api/browser";
@@ -143,8 +145,8 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="mb-10">Web5 React Example</h1>
-      <form>
+      {/* <h1 className="mb-10">Web5 React Example</h1> */}
+      {/* <form>
         <label>
           Upload File:
           <input type="file" onChange={handleFileChange} />
@@ -161,7 +163,9 @@ export default function Home() {
             alt="Uploaded Image"
           />
         </div>
-      </form>
+      </form> */}
+      <HomePage />
+      {/* <NeovisComponent /> */}
     </>
   );
 }
