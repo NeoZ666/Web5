@@ -8,7 +8,7 @@ import { Web5 } from "@web5/api/browser";
 //   import { Web5 } from "@web5/api/browser";
 // }, []);
 
-export default async function Home() {
+export default function Home() {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   // const [text, setText] = useState(null);
@@ -130,21 +130,9 @@ export default async function Home() {
     console.log("yaha tak hua hai");
     // assuming the record has a text payload
     const text = await recordNew.data.text();
-    setImage(text);
+    // setImage(text);
     console.log("Record Data Text:", text);
   };
-  // let { record } = await web5.dwn.records.read({
-  //   message: {
-  //     filter: {
-  //       recordId: "bafyreibmpu4sinoumlhxolbquzni4sbxnbgr6qin2s4jido6noctdpbmva",
-  //     },
-  //   },
-  // });
-  console.log("yaha tak hua hai");
-  // assuming the record has a text payload
-  const text = await record.data.text();
-  setImage(text);
-  console.log("Record Data Text:", text);
 
   // Function to handle file input change
   const handleFileChange = (event) => {
