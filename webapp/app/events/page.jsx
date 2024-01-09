@@ -2,6 +2,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import EventBox from "./Eventbox";
+import { FaPlusCircle } from "react-icons/fa";
+import Link from "next/link";
 
 const page = () => {
   const events = [
@@ -46,6 +48,17 @@ const page = () => {
     <>
       <Navbar />
       {/* <EventBox events={events} /> */}
+      <div className="flex justify-between mx-5 mt-5 md:mt-10 md:mx-20">
+        <h1 className="text-3xl font-bold">
+          Add your new <span className="text-lavender">Event</span>
+        </h1>
+        <Link href='/new-event'>
+          <button className="flex items-center text-2xl gap-x-2 bg-gradient-to-r from-dark_purple to-lavender px-5 py-2 rounded-lg">
+            {" "}
+            <FaPlusCircle /> <span>ADD</span>
+          </button>
+        </Link>
+      </div>
     </>
   );
 };
