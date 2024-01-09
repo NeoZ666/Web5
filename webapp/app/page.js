@@ -157,6 +157,7 @@ export default function Home() {
     }
 
     let { record: res } = await web5.dwn.records.read({
+      from: did,
       message: {
         filter: {
           recordId: "bafyreigqoibnjv2yncx3nipeptnm36vdmugiil7ym752u6e6vsh7m443ie",
