@@ -13,13 +13,14 @@ export default function Home() {
   const [something, setsome] = useState(null);
 
   const BlobProtocol = {
-    protocol : "www.sollertia.xyz",
+    protocol: "www.sollertia.xyz",
     published: true,
     types: {
       blob: {
         schema: "www.sollertia.xyz/blob",
         dataFormats: [
           "image/png",
+          "image/jpeg",
           "audio/mpeg"
         ]
       }
@@ -51,33 +52,33 @@ export default function Home() {
   //       protocol: BlobProtocol.protocol,
   //     })
   //   });
-  
+
   //   if (!record) {
   //     console.error("Failed to create record:", status.detail);
   //     return false;
   //   }
-  
+
   //   if (remote) {
   //     const { status: syncStatus } = await record.send(agent.did);
-  
+
   //     if (syncStatus.code !== 202) {
   //       console.log("Failed to sync record protocol with remote DWN:", syncStatus);
   //       return false;
   //     }
   //   }
-  
+
   //   const { status: syncStatus } = await record.send(agent.did);
-  
+
   //   if (syncStatus.code !== 202) {
   //     console.log("Failed to sync record with remote DWN:", syncStatus);
-  
+
   //     if (remote)
   //       return false;
   //   }
-  
+
   //   return record;
   // }
-  
+
   const configuration = async () => {
     const { web5, did } = await Web5.connect();
     setsome(web5);
@@ -106,56 +107,94 @@ export default function Home() {
 
     console.log("file:", file);
     const { record, status } = await web5.dwn.records.create({
-        data: new Blob([blob], file, { type: file.type }),
-        message: {
+      data: new Blob([blob], file, { type: file.type }),
+      message: {
         schema: BlobProtocol.types.blob.schema,
         protocolPath: "blob",
         dataFormat: file.type,
         published: BlobProtocol.published,
         protocol: BlobProtocol.protocol,
-        }
+      }
     });
     console.log("record:", record);
     console.log("status:", status);
+    console.log("record.dataCid:", record.dataCid);
 
-    // const record = await createRecord(
-    //   {
-    //     web5,
-    //     did
+    // let { record:recordResults } = await web5.dwn.records.read({
+    //   message: {
+    //     filter: {
+    //       recordId: record.id,
+    //     },
     //   },
-    //   new Blob([file], { type: file.type }),
-    //   {
-    //     schema: BlobProtocol.types.blob.schema,
-    //     protocolPath: "blob",
-    //     dataFormat: file.type,
-    //     published: BlobProtocol.published,
-    //   },
-    //   true
-    // )
-  }
-  // Function to handle file input change
+    // });
+
+    // // assuming the record has a text payload
+    // const image = await recordResults.data.blob();
+    // console.log("image:", image);
+
+    const response = await web5.dwn.records.query({
+      from: did,
+      message: {
+        filter: {
+          protocol: BlobProtocol.protocol,
+          schema: BlobProtocol.types.blob.schema,
+        },
+      },
+    });
+
+    if (response.status.code === 200) {
+      const result = await Promise.all(
+        response.records.map(async (record) => {
+          const data = await record.data.blob();
+          return {
+            ...data,
+            recordId: record.id,
+          };
+        })
+      );
+      console.log(result);
+    }
+
+    
+
+      // const record = await createRecord(
+      //   {
+      //     web5,
+      //     did
+      //   },
+      //   new Blob([file], { type: file.type }),
+      //   {
+      //     schema: BlobProtocol.types.blob.schema,
+      //     protocolPath: "blob",
+      //     dataFormat: file.type,
+      //     published: BlobProtocol.published,
+      //   },
+      //   true
+      // )
+    }
+    // Function to handle file input change
     const handleFileChange = (event) => {
       const selectedFile = event.target.files && event.target.files[0];
       setFile(selectedFile);
       console.log("fileSet:", selectedFile);
     };
 
-  return (
-    <>
-      <h1 className="mb-10">Web5 React Example</h1>
-      <form>
-        <label>
-          Upload File:
-          <input type="file" onChange={handleFileChange} />
-        </label>
-        <button type="button" onClick={configuration}>
-          Connect to the Web5 Network
-        </button>
-        <br />
-        <div>
-          <img src={`data:image/jpeg;base64,${btoa(String.fromCharCode.apply(null, image))}`} alt="Uploaded Image" />
-        </div>
-      </form>
-    </>
-  );
+    return (
+      <>
+        <h1 className="mb-10">Web5 React Example</h1>
+        <form>
+          <label>
+            Upload File:
+            <input type="file" onChange={handleFileChange} />
+          </label>
+          <button type="button" onClick={configuration}>
+            Connect to the Web5 Network
+          </button>
+          <br />
+          <div>
+            <img src={`data:image/jpeg;base64,${btoa(String.fromCharCode.apply(null, image))}`} alt="Uploaded Image" />
+          </div>
+        </form>
+      </>
+    );
 }
