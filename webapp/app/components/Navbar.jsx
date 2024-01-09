@@ -29,7 +29,7 @@ export default function Navbar() {
     <nav className="flex flex-col justify-around items-center pt-5 md:flex-row">
       <Link href="/" className="flex flex-row items-center">
         <img width={70} height={70} src="./images/MUSICHAIN.png" alt="HARSH" />
-        <p>MUSICHAIN</p>
+        <p>Sollertia</p>
       </Link>
 
       <ul className="flex gap-x-7 justify-center items-center ml-8 mb-2 md:ml-0 md:mb-0 md:gap-x-10">

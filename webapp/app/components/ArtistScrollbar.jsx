@@ -6,7 +6,8 @@ const ArtistScrollbar = () => {
       <div>
         <h1 className=" text-3xl md:text-6xl md:w-[500px]">
           GET HOLD OF ALL YOUR FAVOURITE{" "}
-          <span className="text-lavender font-sans font-bold">ARTIST</span> & <span className="text-lavender font-sans font-bold">SONGS</span>
+          <span className="text-lavender font-sans font-bold">ARTIST</span> &{" "}
+          <span className="text-lavender font-sans font-bold">SONGS</span>
         </h1>
         <p className="text-sm my-4">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam magni
