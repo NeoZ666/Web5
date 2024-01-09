@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -37,6 +38,9 @@ export default function Navbar() {
         </li>
         <li>
           <Link href="/songs">SONGS</Link>
+        </li>
+        <li>
+          <Link href="/events">EVENTS</Link>
         </li>
         <li>
           <Link href="/upload">UPLOAD</Link>

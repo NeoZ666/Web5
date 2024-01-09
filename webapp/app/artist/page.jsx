@@ -1,7 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const page = () => {
-  return <div>LMAOOOOOOOOOOOOOO</div>;
+  return (
+    <>
+      <Navbar />
+      Artist
+    </>
+  );
 };
 
 export default page;
