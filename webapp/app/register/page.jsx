@@ -44,7 +44,7 @@ const SignUp = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="bg-opacity-25 bg-blur w-96 p-8 rounded-md shadow-md">
-        <h3 className="text-3xl font-bold text-white mb-4">Sign Up</h3>
+        <h3 className="text-3xl text-center font-bold text-white mb-4 md:text-5xl">Sign Up</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             {" "}
@@ -140,7 +140,7 @@ const SignUp = () => {
               name="role"
               value={formData.role}
               onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border rounded-md text-black"
             >
               <option value="user">User</option>
               <option value="artist">Artist</option>
@@ -154,12 +154,12 @@ const SignUp = () => {
             Sign Up
           </button>
         </form>
-        <p className="text-white mt-4">
+        {/* <p className="text-white mt-4">
           Already have an account?{" "}
-          {/* <Link  className="underline">
+          <Link href="/login" className="underline">
             Log in here
-          </Link> */}
-        </p>
+          </Link>
+        </p> */}
       </div>
     </div>
   );
