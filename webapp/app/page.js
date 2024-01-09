@@ -164,10 +164,11 @@ export default function Home() {
     });
   
     // assuming the record has a text payload
-    const text = await record.data.blob();
+    const text = await res.data.blob();
     setImage(text);
 
-    
+    const linked = URL.createObjectURL(text);
+    img.src = linked;s
 
       // const record = await createRecord(
       //   {
@@ -204,7 +205,7 @@ export default function Home() {
           </button>
           <br />
           <div>
-            <img src={URL.createObjectURL(image)} alt="Uploaded Image" />
+            <img src={linked} alt="Uploaded Image" />
           </div>
         </form>
       </>
