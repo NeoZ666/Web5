@@ -18,124 +18,127 @@ function Payment() {
   ];
   console.log(plansList);
 
-  const makePayment1 = async () => {
-    const plans = [
-      {
-        name: "1 Month Subscription",
-        price: 100,
-      },
-    ];
-    const stripe = await loadStripe(
-      "pk_test_51Nk7IzSEBFON0EJBUBJSTdEuns8D1cKcVCeq1927785ziBknaTz0NzNKaEYsHaCdtVwxtHlLViFTezfDzZ7HcLam00YiYPxonf"
-    );
+  // const makePayment1 = async () => {
+  //   const plans = [
+  //     {
+  //       name: "1 Month Subscription",
+  //       price: 100,
+  //     },
+  //   ];
+  //   const stripe = await loadStripe(
+  //     "pk_test_51Nk7IzSEBFON0EJBUBJSTdEuns8D1cKcVCeq1927785ziBknaTz0NzNKaEYsHaCdtVwxtHlLViFTezfDzZ7HcLam00YiYPxonf"
+  //   );
 
-    const body = {
-      plans: plans,
-    };
+  //   const body = {
+  //     plans: plans,
+  //   };
 
-    const headers = {
-      "Content-Type": "application/json",
-    };
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //   };
 
-    const response = await fetch(
-      "http://localhost:7000/api/create-checkout-session",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      }
-    );
+  //   const response = await fetch(
+  //     "http://localhost:7000/api/create-checkout-session",
+  //     {
+  //       method: "POST",
+  //       headers: headers,
+  //       body: JSON.stringify(body),
+  //     }
+  //   );
 
-    const session = await response.json();
+  //   const session = await response.json();
 
-    const result = stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+  //   const result = stripe.redirectToCheckout({
+  //     sessionId: session.id,
+  //   });
 
-    if (result.error) {
-      console.log(result.error.message);
-    }
-  };
+  //   if (result.error) {
+  //     console.log(result.error.message);
+  //   }
+  // };
 
-  const makePayment2 = async () => {
-    const plans = [
-      {
-        name: "6 Months Subscription",
-        price: 600,
-      },
-    ];
-    console.log(plans);
-    const stripe = await loadStripe(
-      "pk_test_51Nk7IzSEBFON0EJBUBJSTdEuns8D1cKcVCeq1927785ziBknaTz0NzNKaEYsHaCdtVwxtHlLViFTezfDzZ7HcLam00YiYPxonf"
-    );
+  // const makePayment2 = async () => {
+  //   const plans = [
+  //     {
+  //       name: "6 Months Subscription",
+  //       price: 600,
+  //     },
+  //   ];
+  //   console.log(plans);
+  //   const stripe = await loadStripe(
+  //     "pk_test_51Nk7IzSEBFON0EJBUBJSTdEuns8D1cKcVCeq1927785ziBknaTz0NzNKaEYsHaCdtVwxtHlLViFTezfDzZ7HcLam00YiYPxonf"
+  //   );
 
-    const body = {
-      plans: plans,
-    };
+  //   const body = {
+  //     plans: plans,
+  //   };
 
-    const headers = {
-      "Content-Type": "application/json",
-    };
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //   };
 
-    const response = await fetch(
-      "http://localhost:7000/api/create-checkout-session",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      }
-    );
+  //   const response = await fetch(
+  //     "http://localhost:7000/api/create-checkout-session",
+  //     {
+  //       method: "POST",
+  //       headers: headers,
+  //       body: JSON.stringify(body),
+  //     }
+  //   );
 
-    const session = await response.json();
+  //   const session = await response.json();
 
-    const result = stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+  //   const result = stripe.redirectToCheckout({
+  //     sessionId: session.id,
+  //   });
 
-    if (result.error) {
-      console.log(result.error.message);
-    }
-  };
+  //   if (result.error) {
+  //     console.log(result.error.message);
+  //   }
+  // };
 
-  const makePayment3 = async () => {
-    const plans = [
-      {
-        name: "1 Year Subscription",
-        price: 1200,
-      },
-    ];
-    const stripe = await loadStripe(
-      "pk_test_51Nk7IzSEBFON0EJBUBJSTdEuns8D1cKcVCeq1927785ziBknaTz0NzNKaEYsHaCdtVwxtHlLViFTezfDzZ7HcLam00YiYPxonf"
-    );
+  // const makePayment3 = async () => {
+  //   const plans = [
+  //     {
+  //       name: "1 Year Subscription",
+  //       price: 1200,
+  //     },
+  //   ];
+  //   const stripe = await loadStripe(
+  //     "pk_test_51Nk7IzSEBFON0EJBUBJSTdEuns8D1cKcVCeq1927785ziBknaTz0NzNKaEYsHaCdtVwxtHlLViFTezfDzZ7HcLam00YiYPxonf"
+  //   );
 
-    const body = {
-      plans: plans,
-    };
+  //   const body = {
+  //     plans: plans,
+  //   };
 
-    const headers = {
-      "Content-Type": "application/json",
-    };
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //   };
 
-    const response = await fetch(
-      "http://localhost:7000/api/create-checkout-session",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      }
-    );
+  //   const response = await fetch(
+  //     "http://localhost:7000/api/create-checkout-session",
+  //     {
+  //       method: "POST",
+  //       headers: headers,
+  //       body: JSON.stringify(body),
+  //     }
+  //   );
 
-    const session = await response.json();
+  //   const session = await response.json();
 
-    const result = stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+  //   const result = stripe.redirectToCheckout({
+  //     sessionId: session.id,
+  //   });
 
-    if (result.error) {
-      console.log(result.error.message);
-    }
-  };
+  //   if (result.error) {
+  //     console.log(result.error.message);
+  //   }
+  // };
 
+  const makePayment1 = () => {console.log("PAYMENT 1")}
+  const makePayment2 = () => {console.log("PAYMENT 2")}
+  const makePayment3 = () => {console.log("PAYMENT 3")}
   return (
     <section className="text-gray-600 body-font h-screen flex items-center justify-center">
       <div className="container px-5 py-24 mx-auto">
