@@ -39,6 +39,9 @@ export default function Navbar() {
           <Link href="/songs">SONGS</Link>
         </li>
         <li>
+          <Link href="/events">EVENTS</Link>
+        </li>
+        <li>
           <Link href="/upload">UPLOAD</Link>
         </li>
 
