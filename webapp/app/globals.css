@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
 .input-wrapper {
   position: relative;
-  /* max-width: 600px; */
+  max-width: 600px;
 }
 
 .input {
@@ -52,7 +53,7 @@
   transform: translateY(-80%) scale(0.75);
   border-color: #000;
   background-color: #1c233d;
-}
+} */
 
 /* SCROLL BAR */
 /* width */

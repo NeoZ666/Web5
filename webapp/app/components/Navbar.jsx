@@ -28,11 +28,11 @@ export default function Navbar() {
   return (
     <nav className="flex flex-col justify-around items-center pt-5 md:flex-row">
       <Link href="/" className="flex flex-row items-center">
-        <img width={80} height={80} src="./images/MUSICHAIN.png" alt="HARSH" />
+        <img width={70} height={70} src="./images/MUSICHAIN.png" alt="HARSH" />
         <p>MUSICHAIN</p>
       </Link>
 
-      <ul className="flex gap-x-10 justify-center items-center">
+      <ul className="flex gap-x-7 justify-center items-center ml-8 mb-2 md:ml-0 md:mb-0 md:gap-x-10">
         <li>
           <Link href="/artist">ARTISTS</Link>
         </li>
@@ -57,12 +57,15 @@ export default function Navbar() {
             </button>
           </div>
         ) : (
-          <button
-            onClick={() => router.push("/register")} // Corrected onClick handler
-            className="block md:text-[20px] md:py-4 md:px-8 py-2 px-4 bg-gradient-to-r from-lavender via-pink-400 to-dark_purple rounded-xl text-slate-200 hover:bg-dark_purple active:bg-light_purple md:hidden"
-          >
-            Get Started
-          </button>
+          <>
+            <br />
+            <button
+              onClick={() => router.push("/register")} // Corrected onClick handler
+              className="hidden md:text-[20px] md:py-4 md:px-8 py-2 px-4 bg-gradient-to-r from-lavender via-pink-400 to-dark_purple rounded-xl text-slate-200 hover:bg-dark_purple active:bg-light_purple md:hidden"
+            >
+              Get Started
+            </button>
+          </>
         )}
       </ul>
 
@@ -79,7 +82,7 @@ export default function Navbar() {
       ) : (
         <button
           onClick={() => router.push("/register")} // Corrected onClick handler
-          className="hidden md:text-[20px] md:py-4 md:px-8 py-2 px-4 bg-gradient-to-r from-lavender via-pink-400 to-dark_purple rounded-xl text-slate-200 hover:bg-dark_purple active:bg-light_purple md:block"
+          className="block md:text-[20px] md:py-4 md:px-8 py-2 px-4 bg-gradient-to-r from-lavender via-pink-400 to-dark_purple rounded-xl text-slate-200 hover:bg-dark_purple active:bg-light_purple md:block"
         >
           Get Started
         </button>
