@@ -1,7 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const page = () => {
-  return <div>Songs</div>;
+  return (
+    <>
+      <Navbar />
+      Songs
+    </>
+  );
 };
 
 export default page;
