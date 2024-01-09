@@ -19,7 +19,7 @@ const ArtistScrollbar = () => {
           <li className="w-[300px] h-[400px] object-contain">
             <img
               className="w-[280px] h-[400px] mx-auto object-cover rounded-3xl p-2 border border-slate-200"
-              src="./images/Static/Singer1.jpg"
+              src="./images/static/Singer1.jpg"
               alt="MUSIC"
             />
             <p className="text-2xl text-center mt-2 font-bold">INDAIN</p>
@@ -27,7 +27,7 @@ const ArtistScrollbar = () => {
           <li className="w-[300px] h-[400px] object-contain">
             <img
               className="w-[280px] h-[400px] mx-auto object-cover rounded-3xl p-2 border border-slate-200"
-              src="./images/Static/Singer2.jpg"
+              src="./images/static/Singer2.jpg"
               alt="MUSIC"
             />
             <p className="text-2xl text-center mt-2 font-bold">TAYLOR SWIFT</p>
