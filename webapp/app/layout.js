@@ -4,8 +4,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "MUSICHAIN WITH WEB5",
-  description: "Great technology.",
+  title: "SOLLERTIA",
+  description: "Get back your rights and be free",
 };
 
 export default function RootLayout({ children }) {
