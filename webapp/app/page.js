@@ -152,62 +152,64 @@ export default function Home() {
           };
         })
       );
-      console.log(result);
+      console.log("result: ", result);
+      console.log(result[0].recordId);
     }
 
     let { record: res } = await web5.dwn.records.read({
       message: {
         filter: {
-          recordId: result[0].recordId,
+          recordId: "bafyreigqoibnjv2yncx3nipeptnm36vdmugiil7ym752u6e6vsh7m443ie",
         },
       },
     });
-  
+
     // assuming the record has a text payload
+
+    let img = document.createElement('img'); // Create a new img element
     const text = await res.data.blob();
-    setImage(text);
 
     const linked = URL.createObjectURL(text);
-    img.src = linked;s
+    setImage(linked) // Set the source of the img element to the blob URL
 
-      // const record = await createRecord(
-      //   {
-      //     web5,
-      //     did
-      //   },
-      //   new Blob([file], { type: file.type }),
-      //   {
-      //     schema: BlobProtocol.types.blob.schema,
-      //     protocolPath: "blob",
-      //     dataFormat: file.type,
-      //     published: BlobProtocol.published,
-      //   },
-      //   true
-      // )
-    }
-    // Function to handle file input change
-    const handleFileChange = (event) => {
-      const selectedFile = event.target.files && event.target.files[0];
-      setFile(selectedFile);
-      console.log("fileSet:", selectedFile);
-    };
+    // const record = await createRecord(
+    //   {
+    //     web5,
+    //     did
+    //   },
+    //   new Blob([file], { type: file.type }),
+    //   {
+    //     schema: BlobProtocol.types.blob.schema,
+    //     protocolPath: "blob",
+    //     dataFormat: file.type,
+    //     published: BlobProtocol.published,
+    //   },
+    //   true
+    // )
+  }
+  // Function to handle file input change
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files && event.target.files[0];
+    setFile(selectedFile);
+    console.log("fileSet:", selectedFile);
+  };
 
-    return (
-      <>
-        <h1 className="mb-10">Web5 React Example</h1>
-        <form>
-          <label>
-            Upload File:
-            <input type="file" onChange={handleFileChange} />
-          </label>
-          <button type="button" onClick={configuration}>
-            Connect to the Web5 Network
-          </button>
-          <br />
-          <div>
-            <img src={linked} alt="Uploaded Image" />
-          </div>
-        </form>
-      </>
-    );
+  return (
+    <>
+      <h1 className="mb-10">Web5 React Example</h1>
+      <form>
+        <label>
+          Upload File:
+          <input type="file" onChange={handleFileChange} />
+        </label>
+        <button type="button" onClick={configuration}>
+          Connect to the Web5 Network
+        </button>
+        <br />
+        {image && <img src={image} alt="Selected" />}
+        <div>
+        </div>
+      </form>
+    </>
+  );
 }
