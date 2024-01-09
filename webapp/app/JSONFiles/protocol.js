@@ -4,41 +4,23 @@ const loginProtocol = {
     "types": {
       "image": {
         "schema": "https://sollertia.com/Loginprotocol/image",
-        "dataFormats": [
-          "image/png",
-          "image/jpeg",
-          "image/gif"
-        ]
+        "dataFormats": ["image/png", "image/jpeg", "image/gif"]
       },
       "name": {
         "schema": "https://sollertia.com/Loginprotocol/name",
-        "dataFormats": [
-          "plain/text"
-        ]
+        "dataFormats": ["plain/text"]
       },
       "email": {
         "schema": "https://sollertia.com/Loginprotocol/email",
-        "dataFormats": [
-          "plain/text"
-        ]
+        "dataFormats": ["plain/text"]
       },
       "password": {
         "schema": "https://sollertia.com/Loginprotocol/password",
-        "dataFormats": [
-          "plain/text"
-        ]
-      },
-      "wallet": {
-        "schema": "https://sollertia.com/Loginprotocol/wallet",
-        "dataFormats": [
-          "plain/text"
-        ]
+        "dataFormats": ["plain/text"]
       },
       "role": {
         "schema": "https://sollertia.com/Loginprotocol/role",
-        "dataFormats": [
-          "plain/text"
-        ]
+        "dataFormats": ["plain/text"]
       }
     },
     "structure": {
@@ -49,7 +31,7 @@ const loginProtocol = {
             "can": "read"
           },
           {
-            "who": "author",
+            "who": "anyone",
             "can": "write"
           }
         ]
@@ -61,7 +43,7 @@ const loginProtocol = {
             "can": "read"
           },
           {
-            "who": "author",
+            "who": "anyone",
             "can": "write"
           }
         ]
@@ -73,7 +55,7 @@ const loginProtocol = {
             "can": "read"
           },
           {
-            "who": "author",
+            "who": "anyone",
             "can": "write"
           }
         ]
@@ -85,7 +67,7 @@ const loginProtocol = {
             "can": "read"
           },
           {
-            "who": "author",
+            "who": "anyone",
             "can": "write"
           }
         ]
@@ -97,7 +79,7 @@ const loginProtocol = {
             "can": "read"
           },
           {
-            "who": "author",
+            "who": "anyone",
             "can": "write"
           }
         ]
