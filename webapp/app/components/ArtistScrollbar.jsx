@@ -6,7 +6,8 @@ const ArtistScrollbar = () => {
       <div>
         <h1 className=" text-3xl md:text-6xl md:w-[500px]">
           GET HOLD OF ALL YOUR FAVOURITE{" "}
-          <span className="text-lavender font-sans font-bold">ARTIST</span> & <span className="text-lavender font-sans font-bold">SONGS</span>
+          <span className="text-lavender font-sans font-bold">ARTIST</span> &{" "}
+          <span className="text-lavender font-sans font-bold">SONGS</span>
         </h1>
         <p className="text-sm my-4">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam magni
@@ -18,7 +19,7 @@ const ArtistScrollbar = () => {
           <li className="w-[300px] h-[400px] object-contain">
             <img
               className="w-[280px] h-[400px] mx-auto object-cover rounded-3xl p-2 border border-slate-200"
-              src="./images/static/Singer1.jpg"
+              src="./images/Static/Singer1.jpg"
               alt="MUSIC"
             />
             <p className="text-2xl text-center mt-2 font-bold">INDAIN</p>
@@ -26,7 +27,7 @@ const ArtistScrollbar = () => {
           <li className="w-[300px] h-[400px] object-contain">
             <img
               className="w-[280px] h-[400px] mx-auto object-cover rounded-3xl p-2 border border-slate-200"
-              src="./images/static/Singer2.jpg"
+              src="./images/Static/Singer2.jpg"
               alt="MUSIC"
             />
             <p className="text-2xl text-center mt-2 font-bold">TAYLOR SWIFT</p>
