@@ -155,6 +155,18 @@ export default function Home() {
       console.log(result);
     }
 
+    let { record: res } = await web5.dwn.records.read({
+      message: {
+        filter: {
+          recordId: result[0].recordId,
+        },
+      },
+    });
+  
+    // assuming the record has a text payload
+    const text = await record.data.blob();
+    setImage(text);
+
     
 
       // const record = await createRecord(
@@ -192,7 +204,7 @@ export default function Home() {
           </button>
           <br />
           <div>
-            <img src={`data:image/jpeg;base64,${btoa(String.fromCharCode.apply(null, image))}`} alt="Uploaded Image" />
+            <img src={URL.createObjectURL(image)} alt="Uploaded Image" />
           </div>
         </form>
       </>
