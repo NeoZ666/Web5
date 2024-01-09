@@ -1,22 +1,22 @@
 const bookProtocolDefinition = {
-  protocol: PROTOCOL_URL,
+  protocol: "www.sollertia.com/book",
   published: true,
   types: {
     label: {
-      schema: LABEL_SCHEMA_URL,
+      schema: "www.sollertia.com/book/label",
       dataFormats: ["application/json"],
     },
     song: {
-      schema: PARTICIPANT_SCHEMA_URL,
+      schema: "www.sollertia.com/book/song",
       dataFormats: ["application/json"],
     },
     artist: {
-      schema: ENTRY_SCHEMA_URL,
+      schema: "www.sollertia.com/book/artist",
       dataFormats: ["application/json"],
     },
   },
   structure: {
-    label: {
+    song: {
       $actions: [
         { who: "anyone", can: "write" },
         { who: "anyone", can: "read" },
