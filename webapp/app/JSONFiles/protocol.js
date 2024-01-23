@@ -4,6 +4,10 @@ const loginProtocol = {
     "protocol": "https://sollertia.com/loginProtocol",
     "published": true,
     "types": {
+        "user": {
+            "schema": "https://sollertia.com/loginrotocol/user",
+            "dataFormats": ["application/json"]
+        },
         "image": {
             "schema": "https://sollertia.com/Loginprotocol/image",
             "dataFormats": ["image/png", "image/jpeg", "image/gif"]
@@ -26,65 +30,67 @@ const loginProtocol = {
         }
     },
     "structure": {
-        "image": {
-            "$actions": [
-                {
-                    "who": "anyone",
-                    "can": "read"
-                },
-                {
-                    "who": "anyone",
-                    "can": "write"
-                }
-            ]
-        },
-        "name": {
-            "$actions": [
-                {
-                    "who": "anyone",
-                    "can": "read"
-                },
-                {
-                    "who": "anyone",
-                    "can": "write"
-                }
-            ]
-        },
-        "email": {
-            "$actions": [
-                {
-                    "who": "anyone",
-                    "can": "read"
-                },
-                {
-                    "who": "anyone",
-                    "can": "write"
-                }
-            ]
-        },
-        "wallet": {
-            "$actions": [
-                {
-                    "who": "anyone",
-                    "can": "read"
-                },
-                {
-                    "who": "anyone",
-                    "can": "write"
-                }
-            ]
-        },
-        "role": {
-            "$actions": [
-                {
-                    "who": "anyone",
-                    "can": "read"
-                },
-                {
-                    "who": "anyone",
-                    "can": "write"
-                }
-            ]
+        "user": {
+            "image": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "anyone",
+                        "can": "write"
+                    }
+                ]
+            },
+            "name": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "anyone",
+                        "can": "write"
+                    }
+                ]
+            },
+            "email": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "anyone",
+                        "can": "write"
+                    }
+                ]
+            },
+            "wallet": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "anyone",
+                        "can": "write"
+                    }
+                ]
+            },
+            "role": {
+                "$actions": [
+                    {
+                        "who": "anyone",
+                        "can": "read"
+                    },
+                    {
+                        "who": "anyone",
+                        "can": "write"
+                    }
+                ]
+            }
         }
     }
 };
@@ -190,86 +196,87 @@ const eventProtocol = {
     "protocol": "https://sollertia.com/eventProtocol",
     "published": true,
     "types": {
-      "event": {
-        "schema": "https://sollertia.com/eventProtocol/event",
-        "dataFormats": ["application/json"]
-      },
-      "eventName": {
-        "schema": "https://sollertia.com/eventProtocol/eventName",
-        "dataFormats": ["plain/text"]
-      },
-      "eventDesc": {
-        "schema": "https://sollertia.com/eventProtocol/eventDesc",
-        "dataFormats": ["plain/text"]
-      },
-      "eventImage": {
-        "schema": "https://sollertia.com/eventProtocol/eventImage",
-        "dataFormats": ["image/png", "image/jpeg", "image/gif"]
-      },
-      "eventDate": {
-        "schema": "https://sollertia.com/eventProtocol/eventDate",
-        "dataFormats": ["plain/text"]
-      },
-      "eventTime": {
-        "schema": "https://sollertia.com/eventProtocol/eventTime",
-        "dataFormats": ["plain/text"]
-      },
-      "user": {
-        "schema": "https://sollertia.com/eventProtocol/user",
-        "dataFormats": ["application/json"]
-      }
-    },
-    "structure": {
-      "event": {
-        "user": {
-          "$contextRole": true,
-          "$actions": [
-            { "who": "author", "of": "event", "can": "write" },
-            { "who": "author", "of": "event", "can": "delete" },
-            { "who": "anyone", "can": "read" }
-          ]
+        "event": {
+            "schema": "https://sollertia.com/eventProtocol/event",
+            "dataFormats": ["application/json"]
         },
         "eventName": {
-          "$actions": [
-            { "role": "event/user", "can": "read" },
-            { "role": "event/user", "can": "query" },
-            { "who": "author", "of": "event", "can": "read" },
-            { "who": "author", "of": "event", "can": "write" }
-          ]
+            "schema": "https://sollertia.com/eventProtocol/eventName",
+            "dataFormats": ["plain/text"]
         },
         "eventDesc": {
-          "$actions": [
-            { "role": "event/user", "can": "read" },
-            { "role": "event/user", "can": "query" },
-            { "who": "author", "of": "event", "can": "read" },
-            { "who": "author", "of": "event", "can": "write" }
-          ]
+            "schema": "https://sollertia.com/eventProtocol/eventDesc",
+            "dataFormats": ["plain/text"]
         },
         "eventImage": {
-          "$actions": [
-            { "role": "event/user", "can": "read" },
-            { "role": "event/user", "can": "query" },
-            { "who": "author", "of": "event", "can": "read" },
-            { "who": "author", "of": "event", "can": "write" }
-          ]
+            "schema": "https://sollertia.com/eventProtocol/eventImage",
+            "dataFormats": ["image/png", "image/jpeg", "image/gif"]
         },
         "eventDate": {
-          "$actions": [
-            { "role": "event/user", "can": "read" },
-            { "role": "event/user", "can": "query" },
-            { "who": "author", "of": "event", "can": "read" },
-            { "who": "author", "of": "event", "can": "write" }
-          ]
+            "schema": "https://sollertia.com/eventProtocol/eventDate",
+            "dataFormats": ["plain/text"]
         },
         "eventTime": {
-          "$actions": [
-            { "role": "event/user", "can": "read" },
-            { "role": "event/user", "can": "query" },
-            { "who": "author", "of": "event", "can": "read" },
-            { "who": "author", "of": "event", "can": "write" }
-          ]
+            "schema": "https://sollertia.com/eventProtocol/eventTime",
+            "dataFormats": ["plain/text"]
+        },
+        "user": {
+            "schema": "https://sollertia.com/eventProtocol/user",
+            "dataFormats": ["application/json"]
         }
-      }
+    },
+    "structure": {
+        "event": {
+            "user": {
+                "$contextRole": true,
+                "$actions": [
+                    { "who": "author", "of": "event", "can": "write" },
+                    { "who": "author", "of": "event", "can": "delete" },
+                    { "who": "anyone", "can": "read" }
+                ]
+            },
+            "eventName": {
+                "$actions": [
+                    { "role": "event/user", "can": "read" },
+                    { "role": "event/user", "can": "query" },
+                    { "who": "author", "of": "event", "can": "read" },
+                    { "who": "author", "of": "event", "can": "write" }
+                ]
+            },
+            "eventDesc": {
+                "$actions": [
+                    { "role": "event/user", "can": "read" },
+                    { "role": "event/user", "can": "query" },
+                    { "who": "author", "of": "event", "can": "read" },
+                    { "who": "author", "of": "event", "can": "write" }
+                ]
+            },
+            "eventImage": {
+                "$actions": [
+                    { "role": "event/user", "can": "read" },
+                    { "role": "event/user", "can": "query" },
+                    { "who": "author", "of": "event", "can": "read" },
+                    { "who": "author", "of": "event", "can": "write" }
+                ]
+            },
+            "eventDate": {
+                "$actions": [
+                    { "role": "event/user", "can": "read" },
+                    { "role": "event/user", "can": "query" },
+                    { "who": "author", "of": "event", "can": "read" },
+                    { "who": "author", "of": "event", "can": "write" }
+                ]
+            },
+            "eventTime": {
+                "$actions": [
+                    { "role": "event/user", "can": "read" },
+                    { "role": "event/user", "can": "query" },
+                    { "who": "author", "of": "event", "can": "read" },
+                    { "who": "author", "of": "event", "can": "write" }
+                ]
+            }
+        }
     }
-  }
-  
+}
+
+export default { loginProtocol, uploadProtocol, eventProtocol };

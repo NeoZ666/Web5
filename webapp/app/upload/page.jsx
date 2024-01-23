@@ -13,7 +13,7 @@ const Upload = () => {
   const [artistInput, setArtistInput] = useState({
     username: "Drake",
     numberOfSongs: 1,
-    views: 0,
+    views: 0, 
     wallet: "0xec88e00039294b99FfcdAc480C05A77C5F1d4229",
   });
 
